@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning Experiments</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1E90FF, #FF69B4);
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Header */
+        .header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Container */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+            backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button Styling */
+        .experiment-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experiment-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease-in-out;
+        }
+
+        .experiment-button:hover::before {
+            left: 100%;
+        }
+
+        .experiment-button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Deep Learning Experiment Portal</div>
+
+    <div class="container">
+        <h1>Select an Experiment</h1>
+        <form action="/run_experiment" method="post">
+            <button type="submit" name="experiment" value="1" class="experiment-button">Simple Neural Network</button>
+            <button type="submit" name="experiment" value="2" class="experiment-button">Data Loading & Preprocessing</button>
+            <button type="submit" name="experiment" value="3" class="experiment-button">Sequential Model Classification</button>
+            <button type="submit" name="experiment" value="4" class="experiment-button">Sequential Model with Multiple Optimizers</button>
+            <button type="submit" name="experiment" value="5" class="experiment-button">Random Mini-Batch Evaluations</button>
+        </form>
+    </div>
+
+    <div class="footer">&copy; 2025 Deep Learning Lab</div>
+
+</body>
+</html>

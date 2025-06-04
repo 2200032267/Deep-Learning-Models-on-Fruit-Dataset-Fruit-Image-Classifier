@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1E90FF, #FF69B4);
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 10px auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .back-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ experiment }} Results</h1>
+
+        {% if experiment == "Simple Neural Network" %}
+            <h2>Accuracy</h2>
+            <pre>{{ experiment_results.accuracy }}%</pre>
+
+            <h2>Loss Over Epochs</h2>
+            <pre>{{ experiment_results.loss_over_epochs }}</pre>
+
+            <h2>Sample Predictions</h2>
+            <pre>{{ experiment_results.sample_predictions }}</pre>
+
+            <h2>Confusion Matrix</h2>
+            <pre>{{ experiment_results.confusion_matrix }}</pre>
+
+            <h2>Classification Report</h2>
+            <pre>{{ experiment_results.classification_report }}</pre>
+
+            <h2>Training Time</h2>
+            <pre>{{ experiment_results.training_time }} seconds</pre>
+
+        {% elif experiment == "Data Loading & Preprocessing" %}
+            <h2>Dataset Shape</h2>
+            <pre>{{ experiment_results.dataset_shape }}</pre>
+
+            <h2>Sample Rows</h2>
+            <pre>{{ experiment_results.sample_rows }}</pre>
+
+            <h2>Normalized Values (First 5 Rows)</h2>
+            <pre>{{ experiment_results.normalized_values }}</pre>
+
+            <h2>Encoded Labels (First 10 Rows)</h2>
+            <pre>{{ experiment_results.encoded_labels }}</pre>
+
+            <h2>Training Data Shape</h2>
+            <pre>{{ experiment_results.training_data_shape }}</pre>
+
+            <h2>Testing Data Shape</h2>
+            <pre>{{ experiment_results.testing_data_shape }}</pre>
+
+        {% elif experiment == "Sequential Model Classification" %}
+            <h2>Accuracy</h2>
+            <pre>{{ experiment_results.accuracy }}%</pre>
+
+            <h2>Confusion Matrix</h2>
+            <pre>{{ experiment_results.confusion_matrix }}</pre>
+
+            <h2>Classification Report</h2>
+            <pre>{{ experiment_results.classification_report }}</pre>
+
+            <h2>Training Loss Over Epochs</h2>
+            <img src="data:image/png;base64,{{ experiment_results.loss_plot_url }}" alt="Loss Plot">
+
+            <h2>Confusion Matrix (Image)</h2>
+            <img src="data:image/png;base64,{{ experiment_results.cm_plot_url }}" alt="Confusion Matrix">
+
+        {% elif experiment == "Sequential Model with Multiple Optimizers" %}
+            <h2>Optimizers Comparison</h2>
+            {% for opt, results in experiment_results.optimizer_results.items() %}
+                <h3>{{ opt }} Optimizer</h3>
+                <p><strong>Accuracy:</strong> {{ results.accuracy }}%</p>
+
+                <h3>Loss Plot</h3>
+                <img src="data:image/png;base64,{{ results.loss_plot_url }}" alt="Loss Plot for {{ opt }}">
+
+                <h3>Confusion Matrix</h3>
+                <img src="data:image/png;base64,{{ results.cm_plot_url }}" alt="Confusion Matrix for {{ opt }}">
+            {% endfor %}
+
+        {% elif experiment == "Random Mini-Batch Evaluations" %}
+            <h2>Epoch-wise Mini-Batch Accuracy</h2>
+            <pre>
+                {% for acc in experiment_results.mini_batch_accuracies %}
+                Epoch {{ (loop.index0 // 5) + 1 }}, Mini-Batch {{ (loop.index0 % 5) + 1 }}: {{ "%.4f"|format(acc) }}
+                {% endfor %}
+            </pre>
+
+            <h2>Loss Trend Graph</h2>
+            <img src="data:image/png;base64,{{ experiment_results.loss_plot_url }}" alt="Loss Plot">
+
+            <h2>Mini-Batch Accuracy Graph</h2>
+            <img src="data:image/png;base64,{{ experiment_results.mini_batch_accuracy_plot_url }}" alt="Mini-Batch Accuracy Plot">
+
+
+
+        {% else %}
+            <h2>Error</h2>
+            <pre>Invalid Experiment</pre>
+        {% endif %}
+
+        <!-- Button to run another experiment -->
+        <a href="/" class="back-button">Run Another Experiment</a>
+    </div>
+</body>
+</html>
