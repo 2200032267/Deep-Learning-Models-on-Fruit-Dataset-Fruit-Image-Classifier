@@ -8,9 +8,9 @@ This repository demonstrates the application of **Deep Learning (DL) models** on
 
 ## 🔗 Project Links
 
-- 🔗 **Live Site (Render Deployment):** [Click Here]()
-- 📰 **LinkedIn Article:** [Click Here]()
-- 📹 **Video Demo:** [Click Here]()
+- 🔗 **Live Site (Render Deployment):** [Click Here](https://github.com/2200032267)
+- 📰 **LinkedIn Article:** [Click Here](https://www.linkedin.com/in/n-vighnesh-5b74aa24a/recent-activity/articles/)
+- 📹 **Video Demo:** [Click Here](https://drive.google.com/file/d/1nIeucDm8HlP3TSUbfGLy8z7Vgv99vPcx/view?usp=sharing)
 
 ---
 
