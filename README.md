@@ -6,6 +6,16 @@ This repository demonstrates the application of **Deep Learning (DL) models** on
 
 ---
 
+## 🔗 Project Links
+
+- 🔗 **Live Site (Render Deployment):** []
+- 📰 **LinkedIn Article:** []
+- 📹 **Video Demo:** []
+
+---
+
+## 📖 Introduction
+
 It contains two major components:
 
 1. **Fruit Image Classifier**  
@@ -72,20 +82,24 @@ Each experiment is designed to provide comprehensive insights into how deep lear
 
 ---
 
-[Link Text](templates/index.html)
+## 📸 Screenshots
+
+**Final Outputs**
+[Click Here](Final_Outputs/)
+
+---
 
 
+## 👤 Author
+
+**NEDULLA VIGHNESH**  
+- GitHub: [2200032267](https://github.com/2200032267)  
+- LinkedIn: [N VIGHNESH](https://linkedin.com/in/yourprofile)  
+- Email:vighneshnv2@gmail.com
+---
 ## ⭐ Star This Repository
 
 If you find this project useful or interesting, please ⭐ star this repository to support and encourage further development!  
 Your support means a lot! 🙏
 
 ---
-
-## 👤 Author
-
-**N Vighnesh**  
-📧 Email: [vighneshnv2@gmail.com ]  
-
-
-
