@@ -3,7 +3,7 @@
 ## 🚀 Project Overview
 
 This repository demonstrates the application of **Deep Learning (DL) models** on the **Date Fruit Dataset** to derive meaningful insights and predictions, alongside a **fruit image classification** system using convolutional neural networks.
-
+---
 It contains two major components:
 
 1. **Fruit Image Classifier**  
